@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -50,12 +49,11 @@ namespace Intrumentacion
             [DllImport("winusb.dll")]
             private static extern bool WinUsb_WritePipe(IntPtr InterfaceHandle, byte PipeID, byte[] Buffer, int BufferLength, out uint LengthTransferred, IntPtr Overlapped);
             #endregion
-
             static void Main()
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new PicWinUSB());
+                Application.Run(new Instru() );
             }
 
             //***********************************************************************

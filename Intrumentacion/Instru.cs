@@ -18,6 +18,8 @@ namespace Intrumentacion
         operaciones operaciones;
         public Instru()
         {
+            datos = new lectura_de_datos();
+            operaciones = new operaciones();
             InitializeComponent();
         }
 

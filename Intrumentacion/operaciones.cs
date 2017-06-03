@@ -12,7 +12,7 @@ namespace Intrumentacion
         IntPtr iHandle;                             // global device handle definition
         PicWinUSBAPI picwinusbapi = new PicWinUSBAPI();
         Bitmap Osciloscopio = new Bitmap(401, 256);
-        Int16 x = 0;
+        //Int16 x = 0;
 
         public operaciones()
         {
