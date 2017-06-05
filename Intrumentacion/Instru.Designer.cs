@@ -269,6 +269,7 @@
             // txtDiv2
             // 
             this.txtDiv2.Location = new System.Drawing.Point(122, 153);
+            this.txtDiv2.MaxLength = 5;
             this.txtDiv2.Name = "txtDiv2";
             this.txtDiv2.Size = new System.Drawing.Size(31, 20);
             this.txtDiv2.TabIndex = 10;
@@ -276,6 +277,7 @@
             // txtDiv1
             // 
             this.txtDiv1.Location = new System.Drawing.Point(22, 153);
+            this.txtDiv1.MaxLength = 5;
             this.txtDiv1.Name = "txtDiv1";
             this.txtDiv1.Size = new System.Drawing.Size(31, 20);
             this.txtDiv1.TabIndex = 9;
@@ -291,6 +293,7 @@
             // txtMulti2
             // 
             this.txtMulti2.Location = new System.Drawing.Point(122, 104);
+            this.txtMulti2.MaxLength = 5;
             this.txtMulti2.Name = "txtMulti2";
             this.txtMulti2.Size = new System.Drawing.Size(31, 20);
             this.txtMulti2.TabIndex = 7;
@@ -298,6 +301,7 @@
             // txtMulti1
             // 
             this.txtMulti1.Location = new System.Drawing.Point(22, 104);
+            this.txtMulti1.MaxLength = 5;
             this.txtMulti1.Name = "txtMulti1";
             this.txtMulti1.Size = new System.Drawing.Size(31, 20);
             this.txtMulti1.TabIndex = 6;
@@ -313,6 +317,7 @@
             // txtRes2
             // 
             this.txtRes2.Location = new System.Drawing.Point(122, 62);
+            this.txtRes2.MaxLength = 5;
             this.txtRes2.Name = "txtRes2";
             this.txtRes2.Size = new System.Drawing.Size(31, 20);
             this.txtRes2.TabIndex = 4;
@@ -320,6 +325,7 @@
             // txtRes1
             // 
             this.txtRes1.Location = new System.Drawing.Point(22, 62);
+            this.txtRes1.MaxLength = 5;
             this.txtRes1.Name = "txtRes1";
             this.txtRes1.Size = new System.Drawing.Size(31, 20);
             this.txtRes1.TabIndex = 3;
@@ -335,6 +341,7 @@
             // txtSum2
             // 
             this.txtSum2.Location = new System.Drawing.Point(122, 21);
+            this.txtSum2.MaxLength = 5;
             this.txtSum2.Name = "txtSum2";
             this.txtSum2.Size = new System.Drawing.Size(31, 20);
             this.txtSum2.TabIndex = 1;
@@ -342,6 +349,7 @@
             // txtSum1
             // 
             this.txtSum1.Location = new System.Drawing.Point(22, 21);
+            this.txtSum1.MaxLength = 5;
             this.txtSum1.Name = "txtSum1";
             this.txtSum1.Size = new System.Drawing.Size(31, 20);
             this.txtSum1.TabIndex = 0;
