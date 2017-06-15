@@ -30,9 +30,6 @@ namespace Intrumentacion
             Material.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             datos = new lectura_de_datos();
             op = new operaciones();
-            //timer_luxes.Start();
-            //timer_temperatura.Start();
-
         }
 
         private void btnSuma_Click(object sender, EventArgs e)
@@ -106,22 +103,43 @@ namespace Intrumentacion
         {
             bool bres;
             byte[] sdBuffer = new byte[3];           // Define send DataBuffer size
-            byte[] rdBuffer = new byte[66];           // Define recieve DataBuffer size
+            byte[] rdBuffer = new byte[67];          // Define recieve DataBuffer size
+            int n, inicio, final;
+            n = rdBuffer[2];                        //Bytes recibidos
+            inicio = rdBuffer[0];                   //Inicio de la cola
+            final = rdBuffer[1];                    //Final de la cola
 
-            sdBuffer[0] = 0x0A;    //Modo ADC
+            sdBuffer[0] = 0x0B;    //Modo ADC
             bres = op.picwinusbapi.Write_PicWinUSB(op.iHandle, sdBuffer);
             bres = op.picwinusbapi.Read_PicWinUSB(op.iHandle, rdBuffer);
 
-            if (rdBuffer[0] > 0) //Si se recibe un valor mayor a 0
-            {
-                //AdcBar.Value = (int)(rdBuffer[0] * 100 / 254); //Dibujar en la barra
-                if (x > 400)
+            //SE ORDENA EL ARREGLO DE BYTES
+            byte[] auxBuffer = new byte[n];
+            int k = inicio;
+	        for (int l = 0; l < n; l++)
+	        {
+		        auxBuffer[l++] = rdBuffer[k++];
+		        if (k == n)
                 {
-                    x = 0;
-                    Osciloscopio.Dispose();
-                    Osciloscopio = new Bitmap(401, 256);
+			        k = 0;
                 }
-                Osciloscopio.SetPixel(x++, 255 - rdBuffer[0] / 2, Color.Red);
+	        }
+	        //auxBuffer[n] = '\0';
+
+            //SE GRAFICA EL ARREGLO DE BYTES
+            for (int i = 0; i < n; i ++)
+            {
+                if (auxBuffer[i] > 0) //Si se recibe un valor mayor a 0
+                {
+                    //AdcBar.Value = (int)(auxBuffer[i] * 100 / 254); //Dibujar en la barra
+                    if (x > 400)
+                    {
+                        x = 0;
+                        Osciloscopio.Dispose();
+                        Osciloscopio = new Bitmap(401, 256);
+                    }
+                    Osciloscopio.SetPixel(x++, 255 - auxBuffer[i] / 2, Color.Red);
+                }
             }
             PicBoxOsiloscopio.Image = Osciloscopio;
         }
@@ -130,22 +148,43 @@ namespace Intrumentacion
         {
             bool bres;
             byte[] sdBuffer = new byte[3];           // Define send DataBuffer size
-            byte[] rdBuffer = new byte[66];           // Define recieve DataBuffer size
+            byte[] rdBuffer = new byte[67];          // Define recieve DataBuffer size
+            int n, inicio, final;
+            n = rdBuffer[2];                        //Bytes recibidos
+            inicio = rdBuffer[0];                   //Inicio de la cola
+            final = rdBuffer[1];                    //Final de la cola
 
             sdBuffer[0] = 0x0B;    //Modo ADC
             bres = op.picwinusbapi.Write_PicWinUSB(op.iHandle, sdBuffer);
             bres = op.picwinusbapi.Read_PicWinUSB(op.iHandle, rdBuffer);
 
-            if (rdBuffer[0] > 0) //Si se recibe un valor mayor a 0
+            //SE ORDENA EL ARREGLO DE BYTES
+            byte[] auxBuffer = new byte[n];
+            int k = inicio;
+            for (int l = 0; l < n; l++)
             {
-                //AdcBar.Value = (int)(rdBuffer[0] * 100 / 254); //Dibujar en la barra
-                if (x > 400)
+                auxBuffer[l++] = rdBuffer[k++];
+                if (k == n)
                 {
-                    x = 0;
-                    Osciloscopio.Dispose();
-                    Osciloscopio = new Bitmap(401, 256);
+                    k = 0;
                 }
-                Osciloscopio.SetPixel(x++, 255 - rdBuffer[0] / 2, Color.Red);
+            }
+            //auxBuffer[n] = '\0';
+
+            //SE GRAFICA EL ARREGLO DE BYTES
+            for (int i = 0; i < n; i++)
+            {
+                if (auxBuffer[i] > 0) //Si se recibe un valor mayor a 0
+                {
+                    //AdcBar.Value = (int)(auxBuffer[i] * 100 / 254); //Dibujar en la barra
+                    if (x > 400)
+                    {
+                        x = 0;
+                        Osciloscopio.Dispose();
+                        Osciloscopio = new Bitmap(401, 256);
+                    }
+                    Osciloscopio.SetPixel(x++, 255 - auxBuffer[i] / 2, Color.Red);
+                }
             }
             PicBoxOsiloscopio.Image = Osciloscopio;
         }
@@ -154,52 +193,81 @@ namespace Intrumentacion
         {
             bool bres;
             byte[] sdBuffer = new byte[3];           // Define send DataBuffer size
-            byte[] rdBuffer = new byte[1];           // Define recieve DataBuffer size
+            byte[] rdBuffer = new byte[10];           // Define recieve DataBuffer size
 
             sdBuffer[0] = 0x06;    //Modo ADC
             bres = op.picwinusbapi.Write_PicWinUSB(op.iHandle, sdBuffer);
             bres = op.picwinusbapi.Read_PicWinUSB(op.iHandle, rdBuffer);
-
-            if (rdBuffer[0] > 0) //Si se recibe un valor mayor a 0
+            int i;
+            String aux;
+            double lux = 0;
+            for (i = 0; i < 10; i ++)
             {
-                //AdcBar.Value = (int)(rdBuffer[0] * 100 / 254); //Dibujar en la barra
-                if (x > 400)
-                {
-                    x = 0;
-                    luxes.Dispose();
-                    luxes = new Bitmap(401, 256);
-                }
-                luxes.SetPixel(x++, 255 - rdBuffer[0] / 2, Color.Red);
+                aux = rdBuffer[i].ToString();
+                lux += int.Parse(aux);
             }
-            pictureBoxLuxes.Image = luxes;
+            lux = (lux / 10);
+            lux = (lux * lux) / 7.5;
+            textLux.Text = lux + " lux";
 
+            /*
+             for (int j = 0; j < 10; j ++)
+             { 
+                 if (rdBuffer[j] > 0) //Si se recibe un valor mayor a 0
+                 {
+                     //AdcBar.Value = (int)(rdBuffer[j] * 100 / 254); //Dibujar en la barra
+                     if (x > 400)
+                     {
+                         x = 0;
+                         temp.Dispose();
+                         temp = new Bitmap(401, 256);
+                     }
+                     temp.SetPixel(x++, 255 - rdBuffer[j] / 2, Color.Red);
+                 }
+             }
+             pictureBoxTemp.Image = temp;*/
         }
 
         private void timer_temperatura_Tick(object sender, EventArgs e)
         {
             bool bres;
             byte[] sdBuffer = new byte[3];           // Define send DataBuffer size
-            byte[] rdBuffer = new byte[1];           // Define recieve DataBuffer size
+            byte[] rdBuffer = new byte[10];          // Define recieve DataBuffer size
 
             sdBuffer[0] = 0x05;    //Modo ADC
             bres = op.picwinusbapi.Write_PicWinUSB(op.iHandle, sdBuffer);
             bres = op.picwinusbapi.Read_PicWinUSB(op.iHandle, rdBuffer);
 
-            if (rdBuffer[0] > 0) //Si se recibe un valor mayor a 0
+            String aux = rdBuffer[0].ToString();
+            int i;
+            double grados = 0;
+            double kelvin;
+            for (i = 0; i < 10; i ++)
             {
-                //AdcBar.Value = (int)(rdBuffer[0] * 100 / 254); //Dibujar en la barra
-                if (x > 400)
-                {
-                    x = 0;
-                    temp.Dispose();
-                    temp = new Bitmap(401, 256);
-                }
-                temp.SetPixel(x++, 255 - rdBuffer[0] / 2, Color.Red);
+                grados += int.Parse(aux);
             }
-            pictureBoxTemp.Image = temp;
-
+            grados = (grados / 10) * 2.03;
+            textGrados.Text = grados + "°C";
+            kelvin = grados + 273.15;
+            textKelvin.Text = kelvin + "°K";
+            /*
+            for (int j = 0; j < 10; j ++)
+            { 
+                if (rdBuffer[j] > 0) //Si se recibe un valor mayor a 0
+                {
+                    //AdcBar.Value = (int)(rdBuffer[j] * 100 / 254); //Dibujar en la barra
+                    if (x > 400)
+                    {
+                        x = 0;
+                        temp.Dispose();
+                        temp = new Bitmap(401, 256);
+                    }
+                    temp.SetPixel(x++, 255 - rdBuffer[j] / 2, Color.Red);
+                }
+            }
+            pictureBoxTemp.Image = temp;*/
         }
-
+        
         private void timerSensor_Tick(object sender, EventArgs e)
         {
             bool bres;
@@ -214,7 +282,7 @@ namespace Intrumentacion
             }
             else
             {
-                pictureBoxSensor.Image.Save("Solution Items/persona.jpg");
+                pictureBoxSensor.Image = Image.FromFile("C:/Users/Joel_/Desktop/ESCOM/Instrumentación/Proyecto/PicWinUSB/PicWinUSB_SRC/Intrumentacion/persona.jpg");
             }
         }
 
@@ -223,6 +291,16 @@ namespace Intrumentacion
             timer_luxes.Start();
             timer_temperatura.Start();
             timerSensor.Start();
+        }
+
+        private void textLux_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textKelvin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
