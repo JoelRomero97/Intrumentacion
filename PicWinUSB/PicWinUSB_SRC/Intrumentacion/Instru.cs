@@ -183,7 +183,7 @@ namespace Intrumentacion
                         Osciloscopio.Dispose();
                         Osciloscopio = new Bitmap(401, 256);
                     }
-                    Osciloscopio.SetPixel(x++, 255 - auxBuffer[i] / 2, Color.Red);
+                    Osciloscopio.SetPixel(x++, 255 - auxBuffer[i] / 2, Color.Green);
                 }
             }
             PicBoxOsiloscopio.Image = Osciloscopio;

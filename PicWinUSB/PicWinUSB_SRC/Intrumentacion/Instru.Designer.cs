@@ -62,13 +62,14 @@
             this.btnLEDon = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnLEDVerdeOn = new MaterialSkin.Controls.MaterialFlatButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.graficaCanal1 = new System.Windows.Forms.Button();
             this.PicBoxOsiloscopio = new System.Windows.Forms.PictureBox();
             this.btnGrafica = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.textKelvin = new System.Windows.Forms.TextBox();
             this.textGrados = new System.Windows.Forms.TextBox();
-            this.textLux = new System.Windows.Forms.TextBox();
             this.comenzarSensores = new System.Windows.Forms.Button();
+            this.textLux = new System.Windows.Forms.TextBox();
             this.pictureBoxSensor = new System.Windows.Forms.PictureBox();
             this.pictureBoxTemp = new System.Windows.Forms.PictureBox();
             this.pictureBoxLuxes = new System.Windows.Forms.PictureBox();
@@ -81,7 +82,6 @@
             this.timer_luxes = new System.Windows.Forms.Timer(this.components);
             this.timer_temperatura = new System.Windows.Forms.Timer(this.components);
             this.timerSensor = new System.Windows.Forms.Timer(this.components);
-            this.graficaCanal1 = new System.Windows.Forms.Button();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -100,11 +100,11 @@
             this.materialTabControl1.Controls.Add(this.tabPage3);
             this.materialTabControl1.Controls.Add(this.tabPage4);
             this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(12, 96);
+            this.materialTabControl1.Location = new System.Drawing.Point(12, 105);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(689, 228);
+            this.materialTabControl1.Size = new System.Drawing.Size(689, 294);
             this.materialTabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -136,7 +136,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(681, 202);
+            this.tabPage1.Size = new System.Drawing.Size(681, 268);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Operaciones";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             this.btnDiv.AutoSize = true;
             this.btnDiv.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDiv.Depth = 0;
-            this.btnDiv.Location = new System.Drawing.Point(334, 187);
+            this.btnDiv.Location = new System.Drawing.Point(334, 208);
             this.btnDiv.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDiv.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDiv.Name = "btnDiv";
@@ -162,7 +162,7 @@
             this.btnMulti.AutoSize = true;
             this.btnMulti.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnMulti.Depth = 0;
-            this.btnMulti.Location = new System.Drawing.Point(334, 139);
+            this.btnMulti.Location = new System.Drawing.Point(334, 151);
             this.btnMulti.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnMulti.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnMulti.Name = "btnMulti";
@@ -209,7 +209,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(189, 192);
+            this.label8.Location = new System.Drawing.Point(189, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 24);
             this.label8.TabIndex = 19;
@@ -219,7 +219,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(189, 143);
+            this.label7.Location = new System.Drawing.Point(189, 155);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 24);
             this.label7.TabIndex = 18;
@@ -249,7 +249,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(80, 196);
+            this.label4.Location = new System.Drawing.Point(80, 217);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 24);
             this.label4.TabIndex = 15;
@@ -259,7 +259,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(80, 143);
+            this.label3.Location = new System.Drawing.Point(80, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 24);
             this.label3.TabIndex = 14;
@@ -287,7 +287,7 @@
             // 
             // txtDivRes
             // 
-            this.txtDivRes.Location = new System.Drawing.Point(242, 196);
+            this.txtDivRes.Location = new System.Drawing.Point(242, 217);
             this.txtDivRes.Name = "txtDivRes";
             this.txtDivRes.ReadOnly = true;
             this.txtDivRes.Size = new System.Drawing.Size(31, 20);
@@ -295,7 +295,7 @@
             // 
             // txtDiv2
             // 
-            this.txtDiv2.Location = new System.Drawing.Point(122, 196);
+            this.txtDiv2.Location = new System.Drawing.Point(122, 217);
             this.txtDiv2.MaxLength = 5;
             this.txtDiv2.Name = "txtDiv2";
             this.txtDiv2.Size = new System.Drawing.Size(31, 20);
@@ -303,7 +303,7 @@
             // 
             // txtDiv1
             // 
-            this.txtDiv1.Location = new System.Drawing.Point(22, 196);
+            this.txtDiv1.Location = new System.Drawing.Point(22, 217);
             this.txtDiv1.MaxLength = 5;
             this.txtDiv1.Name = "txtDiv1";
             this.txtDiv1.Size = new System.Drawing.Size(31, 20);
@@ -311,7 +311,7 @@
             // 
             // txtMultiRes
             // 
-            this.txtMultiRes.Location = new System.Drawing.Point(242, 143);
+            this.txtMultiRes.Location = new System.Drawing.Point(242, 155);
             this.txtMultiRes.Name = "txtMultiRes";
             this.txtMultiRes.ReadOnly = true;
             this.txtMultiRes.Size = new System.Drawing.Size(31, 20);
@@ -319,7 +319,7 @@
             // 
             // txtMulti2
             // 
-            this.txtMulti2.Location = new System.Drawing.Point(122, 143);
+            this.txtMulti2.Location = new System.Drawing.Point(122, 155);
             this.txtMulti2.MaxLength = 5;
             this.txtMulti2.Name = "txtMulti2";
             this.txtMulti2.Size = new System.Drawing.Size(31, 20);
@@ -327,7 +327,7 @@
             // 
             // txtMulti1
             // 
-            this.txtMulti1.Location = new System.Drawing.Point(22, 143);
+            this.txtMulti1.Location = new System.Drawing.Point(22, 155);
             this.txtMulti1.MaxLength = 5;
             this.txtMulti1.Name = "txtMulti1";
             this.txtMulti1.Size = new System.Drawing.Size(31, 20);
@@ -391,7 +391,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(681, 202);
+            this.tabPage2.Size = new System.Drawing.Size(681, 268);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "LED\'S";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -417,7 +417,7 @@
             this.btnLEDof.AutoSize = true;
             this.btnLEDof.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnLEDof.Depth = 0;
-            this.btnLEDof.Location = new System.Drawing.Point(486, 166);
+            this.btnLEDof.Location = new System.Drawing.Point(486, 190);
             this.btnLEDof.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLEDof.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLEDof.Name = "btnLEDof";
@@ -433,7 +433,7 @@
             this.btnLEDRojoOn.AutoSize = true;
             this.btnLEDRojoOn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnLEDRojoOn.Depth = 0;
-            this.btnLEDRojoOn.Location = new System.Drawing.Point(68, 170);
+            this.btnLEDRojoOn.Location = new System.Drawing.Point(68, 194);
             this.btnLEDRojoOn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLEDRojoOn.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLEDRojoOn.Name = "btnLEDRojoOn";
@@ -483,14 +483,24 @@
             this.tabPage3.Controls.Add(this.btnGrafica);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(681, 202);
+            this.tabPage3.Size = new System.Drawing.Size(681, 268);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Osiloscopio";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // graficaCanal1
+            // 
+            this.graficaCanal1.Location = new System.Drawing.Point(550, 169);
+            this.graficaCanal1.Name = "graficaCanal1";
+            this.graficaCanal1.Size = new System.Drawing.Size(95, 23);
+            this.graficaCanal1.TabIndex = 2;
+            this.graficaCanal1.Text = "Canal 1";
+            this.graficaCanal1.UseVisualStyleBackColor = true;
+            this.graficaCanal1.Click += new System.EventHandler(this.graficaCanal1_Click);
+            // 
             // PicBoxOsiloscopio
             // 
-            this.PicBoxOsiloscopio.Location = new System.Drawing.Point(45, 3);
+            this.PicBoxOsiloscopio.Location = new System.Drawing.Point(43, 24);
             this.PicBoxOsiloscopio.Name = "PicBoxOsiloscopio";
             this.PicBoxOsiloscopio.Size = new System.Drawing.Size(472, 196);
             this.PicBoxOsiloscopio.TabIndex = 1;
@@ -498,7 +508,7 @@
             // 
             // btnGrafica
             // 
-            this.btnGrafica.Location = new System.Drawing.Point(550, 105);
+            this.btnGrafica.Location = new System.Drawing.Point(550, 61);
             this.btnGrafica.Name = "btnGrafica";
             this.btnGrafica.Size = new System.Drawing.Size(95, 26);
             this.btnGrafica.TabIndex = 0;
@@ -521,7 +531,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(681, 202);
+            this.tabPage4.Size = new System.Drawing.Size(681, 268);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Sensores";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -541,6 +551,16 @@
             this.textGrados.Size = new System.Drawing.Size(100, 20);
             this.textGrados.TabIndex = 8;
             // 
+            // comenzarSensores
+            // 
+            this.comenzarSensores.Location = new System.Drawing.Point(289, 210);
+            this.comenzarSensores.Name = "comenzarSensores";
+            this.comenzarSensores.Size = new System.Drawing.Size(90, 37);
+            this.comenzarSensores.TabIndex = 6;
+            this.comenzarSensores.Text = "Comenzar";
+            this.comenzarSensores.UseVisualStyleBackColor = true;
+            this.comenzarSensores.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textLux
             // 
             this.textLux.Location = new System.Drawing.Point(74, 140);
@@ -548,16 +568,6 @@
             this.textLux.Size = new System.Drawing.Size(100, 20);
             this.textLux.TabIndex = 7;
             this.textLux.TextChanged += new System.EventHandler(this.textLux_TextChanged);
-            // 
-            // comenzarSensores
-            // 
-            this.comenzarSensores.Location = new System.Drawing.Point(287, 182);
-            this.comenzarSensores.Name = "comenzarSensores";
-            this.comenzarSensores.Size = new System.Drawing.Size(90, 37);
-            this.comenzarSensores.TabIndex = 6;
-            this.comenzarSensores.Text = "Comenzar";
-            this.comenzarSensores.UseVisualStyleBackColor = true;
-            this.comenzarSensores.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBoxSensor
             // 
@@ -644,21 +654,11 @@
             this.timerSensor.Interval = 300;
             this.timerSensor.Tick += new System.EventHandler(this.timerSensor_Tick);
             // 
-            // graficaCanal1
-            // 
-            this.graficaCanal1.Location = new System.Drawing.Point(550, 154);
-            this.graficaCanal1.Name = "graficaCanal1";
-            this.graficaCanal1.Size = new System.Drawing.Size(95, 23);
-            this.graficaCanal1.TabIndex = 2;
-            this.graficaCanal1.Text = "Canal 1";
-            this.graficaCanal1.UseVisualStyleBackColor = true;
-            this.graficaCanal1.Click += new System.EventHandler(this.graficaCanal1_Click);
-            // 
             // Instru
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 373);
+            this.ClientSize = new System.Drawing.Size(713, 411);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "Instru";
