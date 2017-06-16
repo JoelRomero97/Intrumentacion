@@ -95,8 +95,8 @@ namespace Intrumentacion
 
         private void btnGrafica_Click(object sender, EventArgs e)
         {
+            timer_ADC2.Stop();
             timer_ADC.Start();
-            timer_ADC2.Start();
         }
 
         private void timer_ADC_Tick(object sender, EventArgs e)
@@ -282,7 +282,7 @@ namespace Intrumentacion
             }
             else
             {
-                pictureBoxSensor.Image = Image.FromFile("C:/Users/Joel_/Desktop/ESCOM/Instrumentación/Proyecto/PicWinUSB/PicWinUSB_SRC/Intrumentacion/persona.jpg");
+                pictureBoxSensor.Image = Image.FromFile("Solution Items/persona.jpg");    //C:/Users/Joel_/Desktop/ESCOM/Instrumentación/Proyecto/PicWinUSB/PicWinUSB_SRC/Intrumentacion/persona.jpg
             }
         }
 
@@ -301,6 +301,12 @@ namespace Intrumentacion
         private void textKelvin_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void graficaCanal1_Click(object sender, EventArgs e)
+        {
+            timer_ADC.Stop();
+            timer_ADC2.Start();
         }
     }
 }
